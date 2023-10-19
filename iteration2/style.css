@@ -3,6 +3,7 @@ body {
   background-color: #000;
   font-family: "Roboto", sans-serif;
   color: #7a7a7a;
+
 }
 /* sidebar*/
 .sidebar {
@@ -36,6 +37,12 @@ body {
   background-color: #111111;
   position: fixed;
   overflow: auto;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar .navigation-end > p {
@@ -140,6 +147,16 @@ body {
   text-decoration: none;
 }
 
+@media screen and (max-width: 600px) {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
 .topbar a:hover:not(.active) {
   color: white;
 }
@@ -148,7 +165,10 @@ body {
   background-color: #000000;
   color: white;
 }
-
+.searchBar {
+  display: inline-flex;
+  align-items: center;
+}
 .prev-next-buttons button {
   float: left;
   align-items: center;
@@ -352,6 +372,7 @@ dialog::backdrop {
 }
 
 .songs-item-title p {
+  
   padding: 0;
   margin: 0;
   font-size: 16px;
@@ -368,6 +389,20 @@ dialog::backdrop {
   font-size: 14px;
 }
 
+.songs-item p {
+  cursor: pointer;
+  padding: 0;
+  margin:0;
+  font-size: 14px;
+  color: rgb(85, 85, 85);
+}
+
+.songs-item p:hover {
+  font-size: 16px;
+  text-decoration: underline;
+  color: rgb(255, 255, 255);
+}
+
 .songs-item-active {
   width: 1000px;
   display: flex;
@@ -380,9 +415,7 @@ dialog::backdrop {
   border: solid 1px green;
 }
 
-.songs-item :hover:not(songs-item-active) {
-  box-shadow: 0 0 0 2px #d0d0d0;
-}
+
 
 .songs-item img {
   height: 50px;
@@ -401,6 +434,8 @@ dialog::backdrop {
 }
 
 /*search.html*/
+
+
 
 .search-container {
   display: flex;
@@ -425,7 +460,6 @@ dialog::backdrop {
   text-align: center;
 }
 
-
 .search-browse-item {
   background-color: rgba(61, 61, 61, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -447,17 +481,12 @@ dialog::backdrop {
   border-radius: 5px;
 }
 
-
 .search-item:hover {
   background-color: #252525;
 }
 .search-browse-item:hover {
   background-color: #252525;
 }
-
-
-
-
 
 /*for firefox*/
 audio {
@@ -467,24 +496,24 @@ audio {
 
 /*calendar*/
 
-.calendar-container{
-  background-color: #111111;
+.calendar-container {
+  background-color: #111111;;
   width: 1000px;
   margin-left: 310px;
   margin-top: 100px;
-  border: solid black;
-  border-radius: 10px;
+  border-radius: 20px;
+ 
 }
 
-.calendar-container ul{
+.calendar-container ul {
   list-style-type: none;
 }
 
-.calendar-container .month{
+.calendar-container .month {
+  height: 110px;
   padding: 50px 0px;
   width: 100%;
   border-radius: 5px;
-  border: solid 1px #000;
   background: #000000;
   text-align: center;
 }
@@ -497,24 +526,31 @@ audio {
 .calendar-container .month ul li {
   color: white;
   font-size: 20px;
+  
   text-transform: uppercase;
   letter-spacing: 3px;
 }
 
 .calendar-container .month .prev {
+  cursor: pointer;
   float: left;
-  padding-top: 10px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-left: 10px;
 }
 
 .calendar-container .month .next {
+  cursor: pointer;
   float: right;
-  padding-top: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-top: 40px;
 }
+
 
 .calendar-container .weekdays {
   margin: 0;
   padding: 10px 0;
-  border: solid 1px #000;
   background-color: #ddd;
 }
 
@@ -528,52 +564,84 @@ audio {
 .calendar-container .days {
   padding: 10px 0;
   background: #eee;
-  border: solid 1px #000;
   margin: 0;
 }
 
+
 .calendar-container .days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
+  padding: 5px 0px;
+  margin:0;
   margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
+  list-style-type: none;
+  z-index: 1;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 14%;
+  text-align: center;
+  border-radius: 50%;
+ 
+  font-size: 14px;
+  color: black;
 }
 
-.calendar-container .days li .active {
-  padding: 5px;
-  background: #000000;
-  color: white !important
+.calendar-container .days li.inactive {
+  color: #aaa;
+}
+
+.calendar-container .days li.active{
+  color: whitesmoke;
+}
+
+.calendar-container .days li::before {
+  position: absolute;
+  color: white;
+  content: "";
+  height: 30px;
+  width: 30px;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+}
+
+
+.calendar-container .days li:hover::before{
+ 
+  background: #969696;
+}
+
+.calendar-container .days li.active::before{
+  background: #111111;
+  
 }
 
 .radio {
   padding: 0px 18px;
 }
 
-
-#publish-dialog{
+#publish-dialog {
   width: 300px;
   height: 150px;
-  background-color: #111111 ;
+  background-color: #111111;
   border-radius: 10px;
 }
 
-#publish-dialog h6{
+#publish-dialog h6 {
   font-size: large;
   color: antiquewhite;
   text-align: center;
 }
 
-#publish-dialog button{
+#publish-dialog button {
   margin: 0px 10px;
 }
 
 .socials {
   display: inline-flex;
   padding: 0;
-  margin:0 ;
+  margin: 0;
   position: absolute;
   bottom: 10px;
   padding: 10px;
@@ -594,7 +662,7 @@ audio {
 
 .socials img {
   width: 1em;
-  
+
   text-align: center;
 }
 /*work for chrome-base browser */

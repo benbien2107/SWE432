@@ -4,15 +4,17 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/06fcb987e4.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/06fcb987e4.js" crossorigin="anonymous"></script>
+    <script src="myscripts.js" async></script>
 </head>
 
 <body>
 
     <nav class="sidebar">
+
         <section class="navigation rcorners">
             <a href="home.html"> <img src="images/logo2.png" alt="Logo"> </a>
             <a href="home.html">
@@ -51,12 +53,15 @@
     <main class="main-container">
         <nav class="topbar" style="border-radius: 10px">
             <div class="prev-next-buttons">
-                <button type="button" class="fa-solid fa-chevron-left"></button>
-                <button type="button" class="fa-solid fa-chevron-right"></button>
+                <button type="button" onclick="window.history.go(-1); return false;"class="fa-solid fa-chevron-left"></button>
+                <button type="button" onclick="window.history.go(1); return false;"class="fa-solid fa-chevron-right"></button>
             </div>
-
-            <input type="text" placeholder="Search..">
-
+            <div class="searchBar">
+                <form stlye=" display: inline-flex"  action="#" method="post">
+                    <input id="searchType" type="text" placeholder="Search..">
+                    <input type="submit" hidden />
+                </form>
+            </div>
             <div class="topnav">
                 <a href="#"> Support </a>
                 <a href="#"> DJ </a>

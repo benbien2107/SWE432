@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -26,19 +27,29 @@
         <section class="navigation-end rcorners">
             <p> <b> DJ's features </b></p>
             <hr>
-            <a href="#library">
-                <i class="fa-solid fa-book"></i>
-                &ensp; Library</a></li>
-            <a href="time-slot.html">
-                <i class="fa-solid fa-clock"></i>
-                &ensp; Time Slot</a></li>
-            <a href="calendar.html">
-                <i class="fa-regular fa-calendar"></i>
-                &ensp; Calendar</a></li>
-            <a class="active" href="playlist.html">
-                <i class="fa-solid fa-list"></i>
-                &ensp; Playlist
-            </a></li>
+            <ul>
+                <li>
+                    <a href="#library">
+                        <i class="fa-solid fa-book"></i>
+                        &ensp; Library</a>
+                </li>
+                <li>
+                    <a href="time-slot.html">
+                        <i class="fa-solid fa-clock"></i>
+                        &ensp; Time Slot</a>
+                </li>
+                <li>
+                    <a href="calendar.html">
+                        <i class="fa-regular fa-calendar"></i>
+                        &ensp; Calendar</a>
+                </li>
+
+                <li>
+                    <a class="active" href="playlist.html">
+                        <i class="fa-solid fa-list"></i>
+                        &ensp; Playlist</a>
+                </li>
+            </ul>
             <div class="radio">
                 <input type="radio" id="new" name="playlist" alue="NEW" checked="checked">
                 <label for="new">New</label><br>
@@ -58,8 +69,8 @@
     <main class="main-container">
         <nav class="topbar">
             <div class="prev-next-buttons">
-                <button type="button" class="fa-solid fa-chevron-left"></button>
-                <button type="button" class="fa-solid fa-chevron-right"></button>
+                <button type="button" onclick="window.history.go(-1); return false;"class="fa-solid fa-chevron-left"></button>
+                <button type="button" onclick="window.history.go(1); return false;"class="fa-solid fa-chevron-right"></button>
             </div>
             <div class="topnav">
                 <a href="#"> Support </a>
@@ -179,10 +190,11 @@
 
 
             </div>
-
-
+            <script src="myscripts.js" async></script>
+            <button onclick="toTop()"> Back to Top</button>
         </section>
     </main>
+    
 </body>
 
 </html>

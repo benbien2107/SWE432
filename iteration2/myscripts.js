@@ -1,15 +1,28 @@
-const dialog = document.getElementById("publish-dialog");
-const showButton = document.getElementById("publish-btn"); //publish-btn
-const noButton = document.getElementById("no-btn");
-const yesButton = document.getElementById("yes-btn");
+// publish button
 
 
-showButton.addEventListener("click", () => {
-    dialog.showModal();
-});
-noButton.addEventListener("click", () => {
-    dialog.close();
-});
-yesButton.addEventListener("click", () => {
-    dialog.close();
+// check search validation
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM is ready.");
+  // You can manipulate the DOM safely here.
+  function searchValidation() {
+    let searchType = document.getElementById("searchType");
+  
+    if (searchType.value.trim() === "") {
+      searchType.focus();
+      alert("Search cannot be empty");
+      return false;
+    }
+    return true;
+  }
+  
+  var form = document.querySelector("form");
+  if (form)
+    form.addEventListener("submit", (event) => {
+      if (!searchValidation()) {
+        event.preventDefault(); // Prevent form submission if validation fails.
+      }
+    });
+  
+  
 });
