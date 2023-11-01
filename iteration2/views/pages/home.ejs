@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/06fcb987e4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <%- include('../partials/sidebar.ejs') %>
+
+    <main class="main-container">
+        <nav class="topbar">
+            <div class="prev-next-buttons">
+                <button type="button" onclick="window.history.go(-1); return false;" class="fa-solid fa-chevron-left"></button>
+                <button type="button" onclick="window.history.go(1); return false;" class="fa-solid fa-chevron-right"></button>
+            </div>
+            <div class="topnav">
+                <a href="#"> Support </a>
+                <a href="#"> DJ </a>
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </nav>
+
+        <section class="content-container">
+            <p> Radio Channels </p>
+            <section class="home-container">
+                <% for (let i = 0; i < 10; i++) { %>
+                    <div class="home-item">
+                        <img src="images/station_placeholder.jpg" />
+                        <h4>Radio Station</h4>
+                        <p>Station of Radios</p>
+                    </div>
+                <% } %>
+            </section>
+            <p> Radio Channels </p>
+            <section class="home-container">
+                <% for (let i = 0; i < 4; i++) { %>
+                    <div class="home-item">
+                        <img src="images/station_placeholder.jpg" />
+                        <h4>Radio Station</h4>
+                        <p>Station of Radios</p>
+                    </div>
+                <% } %>
+            </section>
+            <p> Radio Channels </p>
+            <section class="home-container">
+                <% for (let i = 0; i < 4; i++) { %>
+                    <div class="home-item">
+                        <img src="images/station_placeholder.jpg" />
+                        <h4>Radio Station</h4>
+                        <p>Station of Radios</p>
+                    </div>
+                <% } %>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

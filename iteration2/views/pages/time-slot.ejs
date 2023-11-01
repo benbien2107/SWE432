@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/06fcb987e4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="/script/time-slot.js" async></script>
+</head>
+<body>
+    <%- include('../partials/sidebar.ejs') %>
+    <main class="main-container">
+        <%- include('../partials/topbar.ejs') %>
+        </nav>
+        <section class="content-container">
+            <div class="publish">
+                <button id="publish-btn">Publish</button>
+                <dialog id="publish-dialog">
+                    <form>
+                        <h6>Do you want to publish this?</h6>
+                    </form>
+                    <footer>
+                        <button id="no-btn">No</button>
+                        <button id="yes-btn">Confirm</button>
+                    </footer>
+                </dialog>
+            </div>
+            <div class="date-playlist">
+                <button type="button" class="fa-solid fa-chevron-left"></button>
+                <p class="customHr"></p>
+                <button type="button" class="fa-solid fa-chevron-right"></button>
+            </div>
+            <div class="songs-list">
+                <!-- Place your dynamic content here using EJS tags -->
+            </div>
+            <dialog class="edit-song-dialog" id="editSongDialog">
+                <h2>Edit Song</h2>
+                <form id="editSongForm">
+                    <label for="editImage">Image URL:</label>
+                    <input type="text" id="editImage" value="">
+                    <br>
+                    <label for="editAudio">Audio URL:</label>
+                    <input type="text" id="editAudio" value="">
+                    <br>
+                    <label for="editName">Name:</label>
+                    <input type="text" id="editName" value="">
+                    <br>
+                    <label for="editArtist">Artist:</label>
+                    <input type="text" id="editArtist" value="">
+                    <br>
+                    <label for="editDuration">Duration:</label>
+                    <input type="text" id="editDuration" value="">
+                    <br>
+                    <button type="button" id="editSongButton" value="default">Save</button>
+                    <button type="button" id="cancelEditButton" formmethod="dialog">Cancel</button>
+                </form>
+            </dialog>
+        </section>
+    </main>
+</body>
+</html>

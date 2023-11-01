@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/06fcb987e4.js" crossorigin="anonymous"></script>
+    <script src="/script/myscripts.js" async></script>
+</head>
+
+<body>
+
+    <%- include('../partials/sidebar.ejs') %>
+
+    <main class="main-container">
+        <nav class="topbar" style="border-radius: 10px">
+            <div class="prev-next-buttons">
+                <button type="button" onclick="window.history.go(-1); return false;"
+                    class="fa-solid fa-chevron-left"></button>
+                <button type="button" onclick="window.history.go(1); return false;"
+                    class="fa-solid fa-chevron-right"></button>
+            </div>
+            <div class="searchBar">
+                <form style=" display: inline-flex" action="#" method="post">
+                    <input id="searchType" type="text" placeholder="Search..">
+                    <input type="submit" hidden />
+                </form>
+            </div>
+            <div class="topnav">
+                <a href="#"> Support </a>
+                <a href="#"> DJ </a>
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </nav>
+
+        <section class="content-container">
+            <p> Recent Search </p>
+            <div class="search-container">
+                <% for (let i=0; i < 7; i++) { %>
+                    <div class="home-item">
+                        <img src="images/station_placeholder.jpg" />
+                        <h4>Radio Station</h4>
+                        <p>Station of Radios</p>
+                    </div>
+                    <% } %>
+            </div>
+            <p> Browse </p>
+            <div class="search-container">
+                <% const browseImages=["breakfast-club.webp", "music.webp" , "podcast.webp" , "rock.jpg" ]; %>
+                    <% for (let i=0; i < 7; i++) { %>
+                        <% for (let i=0; i < browseImages.length; i++) { %>
+                            <div class="search-browse-item">
+                                <img src="images/browse/<%= browseImages[i] %>" />
+                            </div>
+                            <% } %>
+                                <% } %>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
