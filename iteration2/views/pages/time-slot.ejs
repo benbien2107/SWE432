@@ -11,7 +11,13 @@
 <body>
     <%- include('../partials/sidebar.ejs') %>
     <main class="main-container">
-        <%- include('../partials/topbar.ejs') %>
+        <nav class="topbar" style="border-radius: 10px">
+            <%- include('../partials/prev-next-btn.ejs') %>
+            <audio controls>
+                <source type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <%- include('../partials/topnav.ejs') %>
         </nav>
         <section class="content-container">
             <div class="publish">

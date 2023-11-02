@@ -10,7 +10,10 @@
 <body>
     <%- include('../partials/sidebar.ejs') %>
     <main class="main-container">
-        <%- include('../partials/topbar.ejs') %>
+        <nav class="topbar">
+            <%- include('../partials/prev-next-btn.ejs') %>
+            <%- include('../partials/topnav.ejs') %>
+        </nav>
         <section class="content-container">
             <p> New </p>
             <div class="home-container">

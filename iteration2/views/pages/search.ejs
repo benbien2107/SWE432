@@ -17,23 +17,17 @@
 
     <main class="main-container">
         <nav class="topbar" style="border-radius: 10px">
-            <div class="prev-next-buttons">
-                <button type="button" onclick="window.history.go(-1); return false;"
-                    class="fa-solid fa-chevron-left"></button>
-                <button type="button" onclick="window.history.go(1); return false;"
-                    class="fa-solid fa-chevron-right"></button>
-            </div>
+            <%- include('../partials/prev-next-btn.ejs') %>
             <div class="searchBar">
                 <form style=" display: inline-flex" action="#" method="post">
-                    <input id="searchType" type="text" placeholder="Search..">
+                    <input id="searchType" type="text" name = "search" placeholder="Search..">
                     <input type="submit" hidden />
                 </form>
             </div>
-            <div class="topnav">
-                <a href="#"> Support </a>
-                <a href="#"> DJ </a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
-            </div>
+            <% if (message) { %>
+                <div class="alert-message"><%= message %></div>
+              <% } %>
+            <%- include('../partials/topnav.ejs') %>
         </nav>
 
         <section class="content-container">

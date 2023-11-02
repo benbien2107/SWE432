@@ -12,15 +12,8 @@
     <%- include('../partials/sidebar.ejs') %>
     <main class="main-container">
         <nav class="topbar">
-            <div class="prev-next-buttons">
-                <button type="button" onclick="window.history.go(-1); return false;" class="fa-solid fa-chevron-left"></button>
-                <button type="button" onclick="window.history.go(1); return false;" class="fa-solid fa-chevron-right"></button>
-            </div>
-            <div class="topnav">
-                <a href="#"> Support </a>
-                <a href="#"> DJ </a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
-            </div>
+            <%- include('../partials/prev-next-btn.ejs') %>
+            <%- include('../partials/topnav.ejs') %>
         </nav>
         <section class="content-container">
             <div class="calendar-container">

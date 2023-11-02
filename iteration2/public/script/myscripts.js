@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // You can manipulate the DOM safely here.
   function searchValidation() {
     let searchType = document.getElementById("searchType");
-  
     if (searchType.value.trim() === "") {
       searchType.focus();
       alert("Search cannot be empty");
