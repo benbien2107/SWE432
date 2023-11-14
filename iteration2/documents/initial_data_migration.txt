@@ -1,0 +1,55 @@
+Song.create({
+  id: 0,
+  image: "images/vagabond.jpg", // the path or link to the image
+  audio:
+    "http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3", // the path or link(url) to the audio
+  name: "Galaxy Invader",
+  artist: "Water Law",
+  genre: "electronic",
+  duration: "1:11",
+});
+
+Song.create({
+  id: 1,
+  image: "images/kelsir.jpg", // the path or link to the image
+  audio:
+    "http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3", // the path or link(url) to the audio
+  name: "Kelsier Invader", // the name of the song
+  artist: "Kelsier Law",
+  genre: "pop",
+  duration: "1:11",
+});
+
+SongList.create({
+  id: 0,
+  day: 16,
+  month: "September",
+  year: "2023",
+  startHour: "12:00",
+  endHour: "13:00",
+  totalSongs: 21,
+});
+var name1 = "galaxy Invader";
+var name2 = "Kelsier Invader";
+
+async function songFind(data) {
+  let result = await Song.findOne({ name: new RegExp("^" + data + "$", "i") });
+  return result;
+}
+
+async function songListfind(data){
+  let result =  await SongList.findOne({ id: data});
+  return result;
+}
+
+async function main() {
+  const song1 = await songFind(name1);
+  const song2 = await songFind (name2);
+  const list1 = await songListfind(0);
+  list1.songs.push(song1);
+  list1.songs.push(song2);
+  list1.save()
+  
+}
+
+main();

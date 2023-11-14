@@ -18,192 +18,195 @@ if (showButton) {
 
 const songsList = document.querySelector(".songs-list");
 
-const hours = [
-  "00:00",
-  "01:00",
-  "02:00",
-  "03:00",
-  "04:00",
-  "05:00",
-  "06:00",
-  "07:00",
-  "08:00",
-  "09:00",
-  "10:00",
-  "11:00",
-  "12:00",
-  "13:00",
-  "14:00",
-  "16:00",
-  "17:00",
-  "18:00",
-  "19:00",
-  "20:00",
-  "21:00",
-  "22:00",
-  "23:00",
-];
-const months = [
-  "January",
-  "Febuary",
-  "March",
-  "April",
-  "May",
-  "June",
-  " July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-const song1 = {
-  image: "images/vagabond.jpg",
-  audio:
-    "http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3",
-  name: "Galaxy Invader",
-  artist: "Water Law",
-  duration: "1:11",
-};
+// const hours = [
+//   "00:00",
+//   "01:00",
+//   "02:00",
+//   "03:00",
+//   "04:00",
+//   "05:00",
+//   "06:00",
+//   "07:00",
+//   "08:00",
+//   "09:00",
+//   "10:00",
+//   "11:00",
+//   "12:00",
+//   "13:00",
+//   "14:00",
+//   "16:00",
+//   "17:00",
+//   "18:00",
+//   "19:00",
+//   "20:00",
+//   "21:00",
+//   "22:00",
+//   "23:00",
+// ];
+// const months = [
+//   "January",
+//   "Febuary",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   " July",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December",
+// ];
+// const song1 = {
+//   image: "images/vagabond.jpg",
+//   audio:
+//     "http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3",
+//   name: "Galaxy Invader",
+//   artist: "Water Law",
+//   duration: "1:11",
+// };
 
-const song2 = {
-  image: "images/kelsier.jpg",
-  audio:
-    "http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3",
-  name: "Kelsier Invader",
-  artist: "Kelsier Law",
-  duration: "1:11",
-};
+// const song2 = {
+//   image: "images/kelsier.jpg",
+//   audio:
+//     "http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3",
+//   name: "Kelsier Invader",
+//   artist: "Kelsier Law",
+//   duration: "1:11",
+// };
 
-const timeSlots = [
-  {
-    day: 16,
-    month: 9, // October (10 - 1)
-    year: 2023,
-    startHour: 12,
-    endHour: 13,
-    totalSongs: 21,
-    song: song1,
-  },
-  {
-    day: 16,
-    month: 9, // October (10 - 1)
-    year: 2023,
-    startHour: 13,
-    endHour: 14,
-    totalSongs: 7,
-    song: song2,
-  },
-  {
-    day: 16,
-    month: 9, // October (10 - 1)
-    year: 2023,
-    startHour: 14,
-    endHour: 15,
-    totalSongs: 5,
-    song: song1,
-  },
-];
+// const timeSlots = [
+//   {
+//     day: 16,
+//     month: 9, // October (10 - 1)
+//     year: 2023,
+//     startHour: 12,
+//     endHour: 13,
+//     totalSongs: 21,
+//     song: song1,
+//   },
+//   {
+//     day: 16,
+//     month: 9, // October (10 - 1)
+//     year: 2023,
+//     startHour: 13,
+//     endHour: 14,
+//     totalSongs: 7,
+//     song: song2,
+//   },
+//   {
+//     day: 16,
+//     month: 9, // October (10 - 1)
+//     year: 2023,
+//     startHour: 14,
+//     endHour: 15,
+//     totalSongs: 5,
+//     song: song1,
+//   },
+// ];
 
-const songListDate = document.querySelector(".date-playlist");
-const songListDateP = songListDate.querySelector(".customHr");
+// const songListDate = document.querySelector(".date-playlist");
+// const songListDateP = songListDate.querySelector(".customHr");
 
-function renderDate(list) {
-  songListDateP.innerText = `${list.day} ${months[list.month]} ${list.year} ${
-    hours[list.startHour]
-  } to ${hours[list.endHour]}`;
-}
+// function renderDate(list) {
+//   songListDateP.innerText = `${list.day} ${months[list.month]} ${list.year} ${
+//     hours[list.startHour]
+//   } to ${hours[list.endHour]}`;
+// }
 
-function createSongItem(song) {
-  const div = document.createElement("div");
-  div.classList.add("songs-item");
+// function createSongItem(song) {
+//   const div = document.createElement("div");
+//   div.classList.add("songs-item");
 
-  const img = document.createElement("img");
-  img.src = song.image;
-  img.alt = "Logo";
+//   const img = document.createElement("img");
+//   img.src = song.image;
+//   img.alt = "Logo";
 
-  const ul = document.createElement("ul");
-  const li1 = document.createElement("li");
-  li1.style.color = "antiquewhite";
-  li1.innerHTML = "<b>" + song.name + "</b>";
-  const li2 = document.createElement("li");
-  li2.textContent = song.artist;
-  const li3 = document.createElement("li");
-  li3.textContent = song.duration;
+//   const ul = document.createElement("ul");
+//   const li1 = document.createElement("li");
+//   li1.style.color = "antiquewhite";
+//   li1.innerHTML = "<b>" + song.name + "</b>";
+//   const li2 = document.createElement("li");
+//   li2.textContent = song.artist;
+//   const li3 = document.createElement("li");
+//   li3.textContent = song.duration;
 
-  const p = document.createElement("p");
-  p.classList.add("editSong");
-  p.textContent = "edit";
+//   const p = document.createElement("p");
+//   p.classList.add("editSong");
+//   p.textContent = "edit";
 
-  const button = document.createElement("button");
-  button.type = "button";
-  button.innerHTML = '<i class="fa-solid fa-play"></i>';
+//   const button = document.createElement("button");
+//   button.type = "button";
+//   button.innerHTML = '<i class="fa-solid fa-play"></i>';
 
-  const span = document.createElement("span");
-  span.classList.add("time");
-  span.textContent = song.duration;
+//   const span = document.createElement("span");
+//   span.classList.add("time");
+//   span.textContent = song.duration;
 
-  ul.appendChild(li1);
-  ul.appendChild(li2);
-  ul.appendChild(li3);
+//   ul.appendChild(li1);
+//   ul.appendChild(li2);
+//   ul.appendChild(li3);
 
-  div.appendChild(img);
-  div.appendChild(ul);
-  div.appendChild(p);
-  div.appendChild(button);
-  div.appendChild(span);
+//   div.appendChild(img);
+//   div.appendChild(ul);
+//   div.appendChild(p);
+//   div.appendChild(button);
+//   div.appendChild(span);
 
-  return div;
-}
+//   return div;
+// }
 
-function renderList(length, song) {
-  songsList.innerHTML = ""; // Clear the list
+// function renderList(length, song) {
+//   songsList.innerHTML = ""; // Clear the list
 
-  // Create a document fragment to hold the new items
-  const fragment = document.createDocumentFragment();
+//   // Create a document fragment to hold the new items
+//   const fragment = document.createDocumentFragment();
 
-  // Add new items to the fragment
-  for (let i = 0; i < length; i++) {
-    let item = createSongItem(song);
-    fragment.appendChild(item);
-  }
+//   // Add new items to the fragment
+//   for (let i = 0; i < length; i++) {
+//     let item = createSongItem(song);
+//     fragment.appendChild(item);
+//   }
 
-  // Append the fragment to the list
-  songsList.appendChild(fragment);
-}
+//   // Append the fragment to the list
+//   songsList.appendChild(fragment);
+// }
 
-var count = 0;
-// Function to update the content based on the current index
-function updateContent(index) {
-  renderDate(timeSlots[index]);
-  renderList(timeSlots[index].totalSongs, timeSlots[index].song);
-  editListener( timeSlots[index].song);
-}
+// var count = 0;
+// // Function to update the content based on the current index
+// function updateContent(index) {
+//   renderDate(timeSlots[index]);
+//   renderList(timeSlots[index].totalSongs, timeSlots[index].song);
+//   editListener( timeSlots[index].song);
+// }
 
-// Initialize the content
-updateContent(count);
-renderAudio();
+// // Initialize the content
+// updateContent(count);
 
-const songListDateButton = songListDate.querySelectorAll("button");
-songListDateButton.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // start at listsongs
-    if (btn.classList.contains("fa-chevron-right")) {
-      count++;
-    } else {
-      count--;
-    }
-    if (count >= 0 && count <= 2) {
-      updateContent(count);
-      renderAudio();
-    } else {
-      window.alert("You do not have any more playlist!");
-      if (count < 0) count++;
-      else count--;
-    }
-  });
-});
 
+// const songListDateButton = songListDate.querySelectorAll("button");
+// songListDateButton.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     // start at listsongs
+//     if (btn.classList.contains("fa-chevron-right")) {
+//       count++;
+//     } else {
+//       count--;
+//     }
+//     if (count >= 0 && count <= 2) {
+//       updateContent(count);
+//       renderAudio();
+//     } else {
+//       window.alert("You do not have any more playlist!");
+//       if (count < 0) count++;
+//       else count--;
+//     }
+//   });
+// });
+
+
+
+                      
 function renderAudio() {
   const songsItem = document.querySelectorAll(".songs-item");
   const audio = document.querySelector("audio");
@@ -239,6 +242,8 @@ function renderAudio() {
     });
   });
 }
+
+renderAudio();
 //editSong
 function editListener(song) {
   const showEdit = document.querySelectorAll(".editSong");
