@@ -99,7 +99,6 @@ app.post("/time-slot", async function (req, res) {
       counter = data.length - 1; // Set to the last index if above or equal to the length
     }
 
-    console.log(counter);
 
     res.render("pages/time-slot", { page_name: "time-slot", data, counter });
   } catch (error) {
