@@ -15,45 +15,42 @@
 
     <%- include('../partials/sidebar.ejs') %>
 
-    <main class="main-container">
-        <nav class="topbar" style="border-radius: 10px">
-            <%- include('../partials/prev-next-btn.ejs') %>
-            <div class="searchBar">
-                <form style=" display: inline-flex" action="#" method="post">
-                    <input id="searchType" type="text" name = "search" placeholder="Search..">
-                    <input type="submit" hidden />
-                </form>
-            </div>
-            <% if (message) { %>
-                <div class="alert-message"><%= message %></div>
-              <% } %>
-            <%- include('../partials/topnav.ejs') %>
-        </nav>
-
-        <section class="content-container">
-            <p> Recent Search </p>
-            <div class="search-container">
-                <% for (let i=0; i < 7; i++) { %>
-                    <div class="home-item">
-                        <img src="images/station_placeholder.jpg" />
-                        <h4>Radio Station</h4>
-                        <p>Station of Radios</p>
+        <main class="main-container">
+            <nav class="topbar" style="border-radius: 10px">
+                <%- include('../partials/prev-next-btn.ejs') %>
+                    <div class="searchBar">
+                        <form style=" display: inline-flex" action="#" method="post">
+                            <input id="searchType" type="text" name="search" placeholder="Search..">
+                            <input type="submit" hidden />
+                        </form>
+                       
                     </div>
-                    <% } %>
-            </div>
-            <p> Browse </p>
-            <div class="search-container">
-                <% const browseImages=["breakfast-club.webp", "music.webp" , "podcast.webp" , "rock.jpg" ]; %>
-                    <% for (let i=0; i < 7; i++) { %>
-                        <% for (let i=0; i < browseImages.length; i++) { %>
-                            <div class="search-browse-item">
-                                <img src="images/browse/<%= browseImages[i] %>" />
+                  
+                            <%- include('../partials/topnav.ejs') %>
+            </nav>
+
+            <section class="content-container">
+                <p> Songs </p>
+                <div class="search-container">
+                    <% if (songResults && songResults.length> 0) { %>
+                        <% songResults.forEach(song=> { %>
+                            <div class="home-item">
+                                <img src="<%= song.image %>" />
+                                <h4>
+                                    <%= song.name %>
+                                </h4>
+                                <p>
+                                    <%= song.artist %>
+                                </p>
                             </div>
-                            <% } %>
-                                <% } %>
-            </div>
-        </section>
-    </main>
+                            <% }); %>
+                                <% } else { %>
+                                    <p>No initial song results available</p>
+                                    <% } %>
+                </div>
+                
+            </section>
+        </main>
 </body>
 
 </html>

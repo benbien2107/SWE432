@@ -14,44 +14,43 @@
 
     <%- include('../partials/sidebar.ejs') %>
 
-    <main class="main-container">
-        <nav class="topbar">
-            <%- include('../partials/prev-next-btn.ejs') %>
-            <%- include('../partials/topnav.ejs') %>
-        </nav>
+        <main class="main-container">
+            <nav class="topbar">
+                <%- include('../partials/prev-next-btn.ejs') %>
+                    <%- include('../partials/topnav.ejs') %>
+            </nav>
 
-        <section class="content-container">
-            <p> Radio Channels </p>
-            <section class="home-container">
-                <% for (let i = 0; i < 10; i++) { %>
-                    <div class="home-item">
-                        <img src="images/station_placeholder.jpg" />
-                        <h4>Radio Station</h4>
-                        <p>Station of Radios</p>
-                    </div>
-                <% } %>
+            <section class="content-container">
+                <p> Songs </p>
+                <section class="home-container">
+                    <% songResults.forEach(song=> { %>
+                        <div class="home-item">
+                            <img src="<%= song.image %>" />
+                            <h4>
+                                <%= song.name %>
+                            </h4>
+                            <p>
+                                <%= song.artist %>
+                            </p>
+                        </div>
+                        <% } ); %>
+                </section>
+                <p> Playlist</p>
+                <section class="home-container">
+                    <% songListResults.forEach(list=> { %>
+                        <div class="home-item">
+                            <img src="images/station_placeholder.jpg" />
+                            <h4>
+                                Playlist <%= list.id %>
+                            </h4>
+                            <p>
+                                <%= list.startHour %> to <%= list.endHour %>
+                            </p>
+                        </div>
+                        <% }); %>
+               
             </section>
-            <p> Radio Channels </p>
-            <section class="home-container">
-                <% for (let i = 0; i < 4; i++) { %>
-                    <div class="home-item">
-                        <img src="images/station_placeholder.jpg" />
-                        <h4>Radio Station</h4>
-                        <p>Station of Radios</p>
-                    </div>
-                <% } %>
-            </section>
-            <p> Radio Channels </p>
-            <section class="home-container">
-                <% for (let i = 0; i < 4; i++) { %>
-                    <div class="home-item">
-                        <img src="images/station_placeholder.jpg" />
-                        <h4>Radio Station</h4>
-                        <p>Station of Radios</p>
-                    </div>
-                <% } %>
-            </section>
-        </section>
-    </main>
+        </main>
 </body>
+
 </html>
