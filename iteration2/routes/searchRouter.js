@@ -15,7 +15,6 @@ router.get("/", async function (req, res) {
   });
 });
 
-
 router.post("/", async (req, res) => {
   const query = req.body.search;
   let message = null;
@@ -24,8 +23,10 @@ router.post("/", async (req, res) => {
     const regex = new RegExp(query, "i");
 
     // Search in both Song and SongList for matching names
-    const songResults = await Song.find({ name: regex });
-    const songListResults = await SongList.find({ name: regex });
+    const songResults = await Song.find({
+      $or: [{ name: regex }, { artist: regex }, { genre: regex }],
+    });
+    const songListResults = await SongList.find({});
 
     if (songResults.length === 0 && songListResults.length === 0) {
       message = "No results found";
@@ -50,6 +51,22 @@ router.post("/", async (req, res) => {
     songResults: null,
     songListResults: null,
   });
+});
+
+router.post("/add", async (req, res) => {
+  const songId = req.body.songId;
+  const playlistId = req.body.selectedPlaylist;
+
+   // Assuming you have a method to add the song to the playlist
+   const updatedSongList = await SongList.findOneAndUpdate(
+    { id: playlistId }, 
+    { $push: { songs: songId} },
+    { new: true } // To return the updated document
+  );
+
+  // Redirect back to the time-slot page
+  req.session.counter = playlistId;
+  res.redirect(`/time-slot?counter=${playlistId}`);
 });
 
 module.exports = router;

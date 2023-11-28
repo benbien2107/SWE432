@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="https://kit.fontawesome.com/06fcb987e4.js" crossorigin="anonymous"></script>
@@ -7,27 +8,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <%- include('../partials/sidebar.ejs') %>
-    <main class="main-container">
-        <nav class="topbar">
-            <%- include('../partials/prev-next-btn.ejs') %>
-            <%- include('../partials/topnav.ejs') %>
-        </nav>
-        <section class="content-container">
-            <p> New </p>
-            <div class="home-container">
-                <% for (let i = 0; i < 10; i++) { %>
-                    <div class="home-item">
-                        <img src="images/station_placeholder.jpg" />
-                        <h4>Radio Station</h4>
-                        <p>Station of Radios</p>
+        <main class="main-container">
+            <nav class="topbar">
+                <%- include('../partials/prev-next-btn.ejs') %>
+                    <div class="searchBar">
+                        <form style=" display: inline-flex" action="/playlist" method="post">
+                            <input id="searchType" type="text" name="search" placeholder="Put in time: 12:00...">
+                            <input type="submit" hidden />
+                        </form>
+
                     </div>
-                <% } %>
-            </div>
-           
-            <script src="myscripts.js" async></script>
-        </section>
-    </main>
+                    <%- include('../partials/topnav.ejs') %>
+            </nav>
+            <section class="content-container">
+                <p> Playlist </p>
+                <div class="home-container">
+
+                    <% songListResults.forEach(list => { %>
+                        <a href="/playlist/<%= list.id %>">
+                            <div class="home-item">
+                                <img src="images/station_placeholder.jpg" />
+                                <h4>
+                                    Playlist <%= list.id %>
+                                </h4>
+                                <p>
+                                    <%= list.startHour %> to <%= list.endHour %>
+                                </p>
+                            </div>
+                        </a>
+                    <% }); %>
+                </div>
+
+            </section>
+        </main>
 </body>
+
 </html>
