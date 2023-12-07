@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "6552b13efec83e538d49719e"
+  },
+  "id": 1,
+  "image": "images/kelsier.jpg",
+  "audio": "https://dl.vgmdownloads.com/soundtracks/persona-5/szuiidvl/1-01.%20Wake%20Up%2C%20Get%20Up%2C%20Get%20Out%20There.mp3",
+  "name": "Kelsier Invader",
+  "artist": "Kelsier Law",
+  "genre": "pop",
+  "duration": "1:11",
+  "list": [
+    {
+      "$oid": "6552b13efec83e538d49719f"
+    }
+  ],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6552b13efec83e538d49719d"
+  },
+  "id": 0,
+  "image": "images/vagabond.jpg",
+  "audio": "http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3",
+  "name": "Galaxy Invader",
+  "artist": "Water Law",
+  "genre": "electronic",
+  "duration": "1:11",
+  "list": [
+    {
+      "$oid": "6552b13efec83e538d49719f"
+    }
+  ],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "65558759e4e5c53b4ada6b5e"
+  },
+  "id": 2,
+  "image": "images/vintage_logo.jpg",
+  "audio": "https://dl.vgmdownloads.com/soundtracks/persona-5/jjfjpjew/1-02.%20Phantom.mp3",
+  "name": "Phantom Invader",
+  "artist": "Persona5",
+  "genre": "electronic",
+  "duration": "2:17",
+  "list": [
+    {
+      "$oid": "6552b13efec83e538d49719f"
+    }
+  ],
+  "__v": 1
+}]

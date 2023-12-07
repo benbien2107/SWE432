@@ -56,6 +56,7 @@ router.post("/", async (req, res) => {
 router.post("/add", async (req, res) => {
   const songId = req.body.songId;
   const playlistId = req.body.selectedPlaylist;
+  console.log (songId);
 
    // Assuming you have a method to add the song to the playlist
    const updatedSongList = await SongList.findOneAndUpdate(

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+  <header>
+    <%- include('../partials/topnav.ejs') %>
+  </header>
+
+  <main>
+    <form action="/student" method="post">
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input id="name" type="text" name="name">
+        </li>
+        <li>
+          <label for="gnumber">G-Number:</label>
+          <input id="gnumber" type="text" name="gnumber">
+        </li>
+        <li>
+          <label for="email">E-mail:</label>
+          <input id="email" type="text" name="email">
+        </li>
+      </ul>
+
+      <button id="clear-btn" type="reset">Clear</button>
+      <button id="submit-btn" type="submit">Submit</button>
+    </form>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+</body>
+</html>

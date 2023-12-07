@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "6552b13efec83e538d49719f"
+  },
+  "id": 0,
+  "day": 16,
+  "year": "2023",
+  "startHour": "12:00",
+  "endHour": "13:00",
+  "totalSongs": 21,
+  "songs": [
+    {
+      "$oid": "6552b13efec83e538d49719e"
+    },
+    {
+      "$oid": "6552b13efec83e538d49719d"
+    }
+  ],
+  "__v": 1,
+  "months": "September"
+},
+{
+  "_id": {
+    "$oid": "6553010b1c2adbeb69a64c44"
+  },
+  "id": 1,
+  "day": 16,
+  "year": "2023",
+  "startHour": "13:00",
+  "endHour": "14:00",
+  "totalSongs": 16,
+  "songs": [],
+  "__v": 1,
+  "months": "September"
+}]

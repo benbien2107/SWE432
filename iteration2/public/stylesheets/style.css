@@ -411,7 +411,7 @@ dialog::backdrop {
   float: right;
   background-color: red;
   color: whitesmoke;
-  margin-left: 230px;
+ 
 }
 .songs-item p {
   cursor: pointer;

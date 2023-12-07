@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+  <header>
+    <%- include('../partials/topnav.ejs') %>
+  </header>
+
+  <main>
+    <p>Name: <%= locals.name %></p>
+    <p>GNumber: <%= locals.gnumber %></p>
+    <p>Email: <%= locals.email %></p>
+
+    <form action="/contact" method="post">
+        <!-- Add a textarea for the message input -->
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea>
+  
+        <button id="submit-btn" onclick="showDialog()" type="submit">Send</button>
+        <button id="clear-btn" type = "reset">Clear</button>
+      </form>
+  </main>
+  <script>
+   
+    // JavaScript function to show the dialog box
+    function showDialog() {
+      alert("Email sent");
+      // You can add additional logic here, such as clearing the form
+    }
+  </script>
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+</body>
+</html>

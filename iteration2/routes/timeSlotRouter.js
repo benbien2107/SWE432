@@ -9,7 +9,6 @@ router.get("/", async function (req, res) {
   try {
     const data = await SongList.find().populate("songs").exec();
     const songs = await Song.find();
-
     let counter = req.session.counter || 0;
 
     // Update the session with the new counter value
